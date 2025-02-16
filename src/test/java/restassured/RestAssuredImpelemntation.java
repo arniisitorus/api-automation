@@ -6,12 +6,12 @@ import io.restassured.specification.RequestSpecification;
 
 public class RestAssuredImpelemntation {
     public static void main(String[] args) {
-        // getListOfObjects();
-        // getListObjectsId();
-        // getSingleObject();
-        // addObject();
-        // updateObject();
-        // partiallyUpdateObject();
+        getListOfObjects();
+        getListObjectsId();
+        getSingleObject();
+        addObject();
+        updateObject();
+        partiallyUpdateObject();
         deleteObject();
     }
 
