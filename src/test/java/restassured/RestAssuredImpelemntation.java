@@ -6,12 +6,12 @@ import io.restassured.specification.RequestSpecification;
 
 public class RestAssuredImpelemntation {
     public static void main(String[] args) {
-        getListOfObjects();
-        getListObjectsId();
-        getSingleObject();
-        addObject();
-        updateObject();
-        partiallyUpdateObject();
+        // getListOfObjects();
+        // getListObjectsId();
+        // getSingleObject();
+        // addObject();
+        // updateObject();
+        // partiallyUpdateObject();
         deleteObject();
     }
 
@@ -107,7 +107,7 @@ public class RestAssuredImpelemntation {
                             .log()
                             .all()
                             .pathParam("path", "objects")
-                            .pathParam("idObject", "ff808181932badb601950f410bc938ea")
+                            .pathParam("idObject", "ff808181932badb60195669125f57b0c")
                             .body(json)
                             .contentType("application/json")
                             .when()
@@ -119,13 +119,7 @@ public class RestAssuredImpelemntation {
     public static void partiallyUpdateObject(){
         String json = """
             {
-            "name": "Apple MacBook Pro 16 - Update 2025 - using partially update",
-            "data": {
-                "year": 2025,
-                "price": 1849.99,
-                "CPU model": "Intel Core i9",
-                "Hard disk size": "1 TB"
-            }
+            "name": "Apple MacBook Pro 16 - Update 2025 - using partially update"
             }
             """;
 
@@ -134,17 +128,16 @@ public class RestAssuredImpelemntation {
                                                     .given();
 
         Response response = requestSpecification
-                            .log()
-                            .all()
-                            .pathParam("path", "objects")
-                            .pathParam("idObject", "ff808181932badb601950f410bc938ea")
-                            .body(json)
-                            .contentType("application/json")
+                                .log()
+                                .all()
+                                .pathParam("path", "objects")
+                                .pathParam("idObject", "ff808181932badb60195669125f57b0c")
+                                .body(json)
+                                .contentType("application/json")
                             .when()
                                 .patch("{path}/{idObject}");
         System.out.println("Hasil patch object" + response.asPrettyString());
-    }
-    
+    }    
     
     public static void deleteObject(){
         RestAssured.baseURI = "https://api.restful-api.dev/";
@@ -152,11 +145,11 @@ public class RestAssuredImpelemntation {
                                                     .given();
 
         Response response = requestSpecification
-                            .log()
-                            .all()
-                            .pathParam("path", "objects")
-                            .pathParam("idObject", "ff808181932badb601950f410bc938ea")
-                            .contentType("application/json")
+                                .log()
+                                .all()
+                                .pathParam("path", "objects")
+                                .pathParam("idObject", "ff808181932badb60195669125f57b0c")
+                                .contentType("application/json")
                             .when()
                                 .delete("{path}/{idObject}");
         System.out.println("Hasil delete object" + response.asPrettyString());
